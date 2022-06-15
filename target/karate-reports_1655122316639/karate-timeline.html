@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/examples\/users\/APITest[1:8]","start":1655122218675,"end":1655122219668,"title":"src\/test\/java\/examples\/users\/APITest[1:8] 15:10:18.675-15:10:19.668","className":"failed"},{"id":2,"group":1,"content":"src\/test\/java\/examples\/users\/APITest[2:28]","start":1655122219674,"end":1655122220011,"title":"src\/test\/java\/examples\/users\/APITest[2:28] 15:10:19.674-15:10:20.011","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/examples\/users\/APITest[3:41]","start":1655122220016,"end":1655122220363,"title":"src\/test\/java\/examples\/users\/APITest[3:41] 15:10:20.016-15:10:20.363","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
